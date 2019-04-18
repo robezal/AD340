@@ -18,8 +18,44 @@ public class SecondActivity extends AppCompatActivity {
 
         TextView textView = findViewById(R.id.reply);
         Intent intent = getIntent();
-        String reply = intent.getStringExtra(MainActivity.reply);
+        String reply = intent.getStringExtra("grab");
         Log.i(TAG, "onCreate: reply"+reply);
         textView.setText(reply);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        Log.i(TAG, "onDestroy: SecondActivity");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        Log.i(TAG, "onStop: SecondActivity");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        Log.i(TAG, "onPause: SecondActivity");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Log.i(TAG, "onResume: SecondActivity");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Log.i(TAG, "onStart: SecondActivity");
+    }
+
 }
