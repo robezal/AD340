@@ -27,10 +27,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 
 
-
-    private int n;
-
-
     String[][] movies;
 
 
@@ -48,7 +44,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        n=i;
+
+        final int n=i;
         viewHolder.movie.setText(movies[i][0]);
         viewHolder.year.setText(movies[i][1]);
         viewHolder.parent.setOnClickListener(new View.OnClickListener() {
