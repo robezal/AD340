@@ -72,15 +72,26 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             location.addOnCompleteListener(new OnCompleteListener<Location>() {
                 @Override
                 public void onComplete(@NonNull Task<Location> task) {
-                    Log.i(TAG, "LOOK FOR THIS");
+                    Location myLocation = task.getResult();
+                    //Log.i(TAG, "LOOK FOR THIS");
                     LatLng camLocation = new LatLng(camLatitude, camLongitude);
-                    Log.i(TAG, camLocation.toString());
+
                     MarkerOptions cameraOptions = new MarkerOptions();
                     cameraOptions.position(camLocation);
 
                     Marker camMarker = mMap.addMarker(cameraOptions);
                     mMap.animateCamera(CameraUpdateFactory.zoomTo(10));
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(camLocation,10));
+
+//                    if (myLocation != null){
+//                        LatLng newLocation = new LatLng(myLocation.getLatitude(),myLocation.getLongitude());
+//                        Log.i(TAG, newLocation.toString());
+//                        MarkerOptions myOptions = new MarkerOptions();
+//                        myOptions.position(newLocation);
+//                        mMap.addMarker(myOptions);
+//                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(newLocation,10));
+//                    }
+
 
                 }
             });
